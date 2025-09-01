@@ -17,8 +17,8 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Delete all files
+        id: git-commands
         run: |
-          git rm -r --cached .
-          git add .
-          git commit -m "Delete all files"
-          git push
+          git rm -r --cached . || true
+          git commit -m "Delete all files" || true
+          git push || true
